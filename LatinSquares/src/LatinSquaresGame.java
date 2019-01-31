@@ -4,12 +4,20 @@ import java.util.*;
 
 public class LatinSquaresGame {
 	
+	int n;
+	String squareComp;
+	int k;
+	String threeK;
+	private String[][] gameBoard;
+	private String[] tokens;
+	
 	LatinSquaresGame(String config){
-		int n;
-		String squareComp;
-		int k;
-		
-		
+		n = 2;
+		squareComp = "ab";
+		k = 2;
+		threeK = "00a10b";
+
+		/*
 		try {
 			  File configFile = new File(config);
 			  Scanner configScanner = new Scanner(configFile);
@@ -20,6 +28,42 @@ public class LatinSquaresGame {
 			  System.err.println(e);
 			  e.printStackTrace();
 			} // try
+			*/
+		tokens = new String[n];
+		
+		for(int i = 0; i < n; i++) {
+			tokens[i] = squareComp.substring(i, i+1);
+		}
+		
+		
+		gameBoard = new String[n][n];
+		int p;
+		String space = "";
+		if (n <= 10) {
+			p = 1;
+		}
+		else if(n <= 100) {
+			p = 2;
+		}
+		else if(n <= 1000) {
+			p = 3;
+		}
+		else {
+			p = 4;
+		}
+		
+		int numSpaces = p + 2;
+		
+		for(int i = 0; i < numSpaces; i++) {
+			space = space + " ";
+		}
+		
+		for (int i = 0; i < n; i++) {
+			for (int k = 0; k < n; k++) {
+				gameBoard[i][k] = space;
+			}
+		}
+		
 			
 	}
 	
